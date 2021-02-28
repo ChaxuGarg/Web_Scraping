@@ -2,7 +2,7 @@ from selenium import webdriver
 import sys
 import os
 import time
-PATH = "/Users/chaxu/Downloads/chromedriver"
+PATH = "chromedriver"
 driver = webdriver.Chrome(PATH)
 contest = sys.argv[1]
 website = "https://codeforces.com/contest/" + contest
@@ -37,5 +37,7 @@ for i in range(len(links)):
         f.write(txt)
         f.close
     driver.back()
+
+driver.quit()
 
 
