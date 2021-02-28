@@ -1,11 +1,12 @@
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
+import getpass
 PATH = "/Users/chaxu/Downloads/chromedriver"
 driver = webdriver.Chrome(PATH)
 # takin username as input
 login_id = input("Enter your kerberos id: ")
 # taking password as input
-password = input("Enter your password: ")
+password = getpass.getpass()
 #opening moodle
 driver.get("https://moodle.iitd.ac.in/login/index.php")
 #sending username input
@@ -23,9 +24,11 @@ captcha = driver.find_element_by_id("valuepkg3")
 no = [int(i) for i in text.split() if i.isdigit()]
 #solving captcha
 if (text.find('add') != -1):
-    captcha.send_keys(no[0] + no[1])
+    x = no[0]+no[1]
+    captcha.send_keys(x)
 elif (text.find('subtract') != -1):
-    captcha.send_keys(no[0] - no[1])
+    x = no[0] - no[1]
+    captcha.send_keys(x)
 elif (text.find('first') != -1):
     captcha.send_keys(no[0])
 else:
