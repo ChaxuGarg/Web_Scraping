@@ -1,7 +1,7 @@
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 import getpass
-PATH = "./chromedriver"
+PATH = "chromedriver"
 driver = webdriver.Chrome(PATH)
 # takin username as input
 login_id = input("Enter your kerberos id: ")
